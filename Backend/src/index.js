@@ -5,15 +5,14 @@ const mongoose= require('mongoose');
 const router= require('./routes');
 const path = require('path');
 const cors= require('cors');
-const { request } = require('http');
+const { req } = require('http');
 
 env.config();
 app.use(express.json());
 
-
-const mongoURL= `mongodb+srv://${process.env.MONGO_DB_USER}:${process.env.MONGO_DB_PASSWORD}@cluster0.6yyqf.mongodb.net/${process.env.MONGO_DB_DATABASE}?retryWrites=true&w=majority`;
+const mongoURL= `mongodb+srv://${process.env.MONGO_DB_USER}:${process.env.MONGO_DB_PASSWORD}@hardik.6hxsc.mongodb.net/${process.env.MONGO_DB_DATABASE}?retryWrites=true&w=majority`;
 const localMongo= `mongodb://localhost/${process.env.MONGO_DB_DATABASE}`;
-mongoose.connect(localMongo,
+mongoose.connect(mongoURL,
  {
      useNewUrlParser: true,
      useUnifiedTopology: true
